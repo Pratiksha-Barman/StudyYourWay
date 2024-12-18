@@ -24,5 +24,5 @@ StudyYourWay is an AI-driven learning platform designed to advance Sustainable D
 
 
 # Demo Video
-![Demo video](https://github.com/user-attachments/assets/084ae5ca-2e75-4ec6-a69e-056c8876c02a)
+https://github.com/user-attachments/assets/231cc9e9-741d-47de-a8c1-eecc2ee78197
 
