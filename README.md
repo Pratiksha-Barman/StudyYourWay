@@ -17,9 +17,7 @@ StudyYourWay is an AI-driven learning platform designed to advance Sustainable D
 
 # Technology Stack
 📌Frontend:
-
 ✔ HTML, CSS, JavaScript for building responsive UI.
-
 ✔ Integration with IBM Watson Assistant for interactive chatbot functionalities.
 
 
