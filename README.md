@@ -16,23 +16,9 @@ StudyYourWay is an AI-driven learning platform designed to advance Sustainable D
 
 
 # Technology Stack
-📌Frontend:
-✔ HTML, CSS, JavaScript for building responsive UI.
-✔ Integration with IBM Watson Assistant for interactive chatbot functionalities.
+📌Frontend: HTML, CSS, JavaScript for building responsive UI and integration with IBM Watson Assistant for interactive chatbot functionalities.
 
+📌Backend: Node.js with Express for server-side operations with IBM Cloud services for secure data authentication and predictions.
 
-📌Backend:
-
-✔ Node.js with Express for server-side operations.
-
-✔ CORS handling for cross-origin requests.
-
-✔ IBM Cloud services for secure data authentication and predictions.
-
-
-📌Machine Learning:
-
-✔ IBM Watson Studio for developing and deploying models to classify learners as fast or slow.
-
-✔ Logistic Regression and Decision Tree models with performance metrics like accuracy, precision, recall, and F1-score.
+📌Machine Learning: IBM Watson Studio for developing and deploying models to classify learners as fast or slow.
 
