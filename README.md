@@ -22,3 +22,7 @@ StudyYourWay is an AI-driven learning platform designed to advance Sustainable D
 
 📌Machine Learning: IBM Watson Studio for developing and deploying models to classify learners as fast or slow.
 
+
+# Demo Video
+[https://github.com/user-attachments/assets/084ae5ca-2e75-4ec6-a69e-056c8876c02a]
+
