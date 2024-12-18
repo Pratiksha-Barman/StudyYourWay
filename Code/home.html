@@ -1,0 +1,140 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | StudyYourWay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #5cb85c;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        .nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .nav a:hover {
+            background-color: #575757;
+        }
+        .main {
+            padding: 20px;
+            text-align: center;
+        }
+        .main h1 {
+            color: #333;
+        }
+        .main p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .features {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .feature {
+            background-color: white;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+        }
+        .feature h2 {
+            color: #5cb85c;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .feature p {
+            color: #666;
+            font-size: 16px;
+        }
+        .feature a {
+            display: block;
+            margin-top: 10px;
+            color: #5cb85c;
+            text-decoration: none;
+        }
+        .feature a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "2381500f-79c2-4910-b19a-a4f95eb58d49", // The ID of this integration.
+    region: "us-south", // The region your integration is hosted in.
+    serviceInstanceID: "61fd1486-8cb4-4e41-8068-f4647c9d70ff", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+
+    <div class="header">
+        <h1>Welcome to StudyYourWay</h1>
+        <p>Your personalized learning journey starts here</p>
+    </div>
+    <div class="nav">
+        <a href="home.html">Home</a>
+        <a href="personalized-courses.html">Courses</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="login.html">Login</a>
+    </div>
+    <div class="main">
+        <h1>Learn at Your Own Pace</h1>
+        <p>At StudyYourWay, we believe in personalized learning experiences that adapt to your unique needs. Whether you're looking to develop new skills or enhance existing ones, our platform provides the resources and support you need to succeed.</p>
+        <div class="features">
+            <div class="feature">
+                <h2>Personalized Courses</h2>
+                <p>Choose from a wide range of courses tailored to your learning style and goals.</p>
+                <a href="personalized-courses.html">Get Started</a>
+            </div>
+            <div class="feature">
+                <h2>Flexible Schedule</h2>
+                <p>Learn at your own pace, anytime and anywhere, with our flexible scheduling options.</p>
+            </div>
+            <div class="feature">
+                <h2>Expert Instructors</h2>
+                <p>Gain insights and knowledge from industry experts and experienced educators.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 StudyYourWay. All rights reserved.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | StudyYourWay</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .navbar {
+            background-color: #5cb85c;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .header {
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .content h1 {
+            color: #333;
+        }
+        .content p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .courses {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .course {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 100%;
+            max-width: 300px;
+        }
+        .course h2 {
+            color: #5cb85c;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .course p {
+            color: #666;
+            font-size: 16px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "2381500f-79c2-4910-b19a-a4f95eb58d49", // The ID of this integration.
+    region: "us-south", // The region your integration is hosted in.
+    serviceInstanceID: "61fd1486-8cb4-4e41-8068-f4647c9d70ff", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+
+    <div class="navbar">
+        <div class="logo">
+            <h1>StudyYourWay</h1>
+        </div>
+        <div class="links">
+            <a href="home.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Courses</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+    <div class="header">
+        <h1>Courses</h1>
+    </div>
+    <div class="content">
+        <h1>Advanced Learning Opportunities(Fast learners)</h1>
+        <p>For fast learners, we offer advanced courses and additional study materials to challenge and enhance your skills. Our resources are designed to help you excel and reach new heights.</p>
+        <p>Discover our advanced courses and take your learning to the next level.</p>
+        <div class="courses">
+            <div class="course">
+                <h2>Advanced Mathematics</h2>
+                <p>Explore complex mathematical concepts and problem-solving techniques with advanced coursework.</p>
+                <div class="links">
+                    <a href="#">Download Advanced Math Study Guide</a>
+                    <a href="#">Access Advanced Math Problem Sets</a>
+                </div>
+            </div>
+            <div class="course">
+                <h2>Literature Analysis</h2>
+                <p>Dive deep into literary works and develop critical thinking skills through detailed analysis and discussions.</p>
+                <div class="links">
+                    <a href="#">Download Literature Study Notes</a>
+                    <a href="#">Access Literature Analysis Essays</a>
+                </div>
+            </div>
+            <div class="course">
+                <h2>Advanced Science Experiments</h2>
+                <p>Conduct sophisticated scientific experiments and develop innovative research projects with expert guidance and resources.</p>
+                <div class="links">
+                    <a href="#">Download Advanced Science Experiment Guidelines</a>
+                    <a href="#">Access Advanced Science Lab Reports</a>
+                </div>
+            </div>
+            <div class="course">
+                <h2>Programming Masterclass</h2>
+                <p>Master advanced programming languages and techniques to create efficient and scalable applications.</p>
+                <div class="links">
+                    <a href="#">Download Programming Masterclass Resources</a>
+                    <a href="#">Access Advanced Code Repositories</a>
+                </div>
+            </div>
+            <div class="course">
+                <h2>Business Strategy Insights</h2>
+                <p>Gain strategic insights into global business practices and develop leadership skills to drive success.</p>
+                <div class="links">
+                    <a href="#">Download Business Strategy eBooks</a>
+                    <a href="#">Access Case Studies on Successful Businesses</a>
+                </div>
+            </div>
+            <div class="course">
+                <h2>Language Proficiency Enhancement</h2>
+                <p>Improve language proficiency through immersive learning experiences and interactive language courses.</p>
+                <div class="links">
+                    <a href="#">Download Language Learning Guides</a>
+                    <a href="#">Access Language Proficiency Tests</a>
+                </div>
+            </div>
+            <div class="course">
+                <h2>Advanced Arts and Design</h2>
+                <p>Explore advanced techniques in arts and design with hands-on projects and creative workshops.</p>
+                <div class="links">
+                    <a href="#">Download Arts and Design Resources</a>
+                    <a href="#">Access Artistic Portfolios</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024 StudyYourWay. All rights reserved.
+    </div>
+</body>
+</html>

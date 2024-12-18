@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Courses | StudyYourWay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="number"],
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #4cae4c;
+        }
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .links a {
+            display: block;
+            margin: 10px 0;
+            color: #5cb85c;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "2381500f-79c2-4910-b19a-a4f95eb58d49", // The ID of this integration.
+    region: "us-south", // The region your integration is hosted in.
+    serviceInstanceID: "61fd1486-8cb4-4e41-8068-f4647c9d70ff", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+
+  async function getToken() {
+    const response = await fetch('http://localhost:3000/get-token');
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json();
+  }
+
+  async function apiPost(scoring_url, token, payload) {
+    try {
+      const response = await fetch(scoring_url, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + token,
+          'Content-Type': 'application/json;charset=UTF-8'
+        },
+        body: payload
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+      }
+
+      return await response.json(); // Return JSON response
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
+    }
+  }
+
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+
+    // Collect and parse form data
+    const age = parseInt(document.querySelector('input[name="age"]').value);
+    const gender = document.querySelector('select[name="gender"]').value;
+    const previousTestScores = parseFloat(document.querySelector('input[name="previous_test_scores (Out of 100)"]').value);
+    const currentScore = parseFloat(document.querySelector('input[name="current_score"]').value);
+    const studyHoursPerDay = parseFloat(document.querySelector('input[name="study_hours_per_day"]').value);
+    const extracurricularParticipation = document.querySelector('input[name="extracurricular_participation"]').value;
+
+    try {
+        const tokenResponse = await getToken();
+        const token = tokenResponse.access_token;
+
+        const payload = JSON.stringify({
+            "input_data": [{
+                "fields": ["Age", "Gender", "Previous_Test_Scores", "Current_GPA", "Study_Hours_per_Day", "Extracurricular_Participation"],
+                "values": [[age, gender, previousTestScores, currentScore, studyHoursPerDay, extracurricularParticipation]]
+            }]
+        });
+
+        console.log(payload);
+
+        const scoring_url = "http://localhost:3000/ml-predictions";
+        const predictedValue = await apiPost(scoring_url, token, payload);
+
+        // Use predictedValue to redirect or perform actions based on prediction
+        if (predictedValue === 1) {
+            window.location.href = "fast-learners.html";
+        } else {
+            window.location.href = "slow-learners.html";
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+    form.addEventListener("submit", handleFormSubmit);
+  });
+</script>
+
+    <div class="form-container">
+        <h1>Personalized Courses</h1>
+        <form>
+            <input type="number" name="age" placeholder="Age" required>
+            <select name="gender" required>
+                <option value="" disabled selected>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <input type="number" name="previous_test_scores (Out of 100)" placeholder="Previous Test Scores" required>
+            <input type="number" name="current_score" placeholder="Current Score" required step="0.1">
+            <input type="number" name="study_hours_per_day" placeholder="Study Hours per Day" required>
+            <input type="text" name="extracurricular_participation" placeholder="Extracurricular Participation" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="links">
+            <a href="slow-learners.html">Courses for Slow Learners</a>
+            <a href="fast-learners.html">Courses for Fast Learners</a>
+        </div>
+    </div>
+</body>
+</html>
